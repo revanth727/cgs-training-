@@ -1,0 +1,36 @@
+{
+  "HR": [
+    {
+      "employeeId": "R1",
+      "email": "revanth@gmail.com",
+      "password": "123"
+    }
+  ],
+  "Employee": [
+    {
+      "employeeId": "U001",
+      "email": "user1@gmail.com",
+      "password": "1"
+    },
+    {
+      "employeeId": "U002",
+      "email": "user2@gmail.com",
+      "password": "2"
+    },
+    {
+      "employeeId": "U003",
+      "email": "user3@gmail.com",
+      "password": "3"
+    },
+    {
+      "employeeId": "U004",
+      "email": "user4@gmail.com",
+      "password": "4"
+    },
+    {
+      "employeeId": "U005",
+      "email": "user5@gmail.com",
+      "password": "5"
+    }
+  ]
+}

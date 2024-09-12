@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workforce Management System Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .navbar-brand {
+            color: rgb(129, 107, 107);
+        }
+
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #343a40;
+            padding-top: 20px;
+            width: 220px;
+            color: white;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            display: block;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #969ba0;
+        }
+
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(182, 167, 167, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 220px;
+            text-align: center;
+        }
+
+        .btn-logout {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .container-fluid {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" >Workforce Management System</a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h5 class="text-center">Dashboard</h5>
+        <a href="#"><i class="fa fa-tachometer-alt"></i> Overview</a>
+        <a href="schedule.html"><i class="fa fa-calendar-alt"></i> Schedule Management</a>
+        <a href="shift-management.html"><i class="fa fa-user-clock"></i> Shift Management</a>
+        <a href="time-tracking.html"><i class="fa fa-clock"></i> Time Tracking</a>
+        <div class="logout-btn">
+            <a href="#" class="btn btn-danger btn-logout">Logout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="container-fluid">
+            <h2 class="mb-4">Dashboard</h2>
+            <div class="row">
+                <!-- Employee Scheduling Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-primary text-white">
+                        <div class="card-header">Employee Scheduling</div>
+                        <div class="card-body">
+                            <p>Manage employee schedules and track shifts effectively.</p>
+                            <a href="schedule.html" class="btn btn-light">Go to Schedule Management</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shift Management Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-header">Shift Management</div>
+                        <div class="card-body">
+                            <p>Organize and manage shifts for all employees.</p>
+                            <a href="shift-management.html" class="btn btn-light">Manage Shifts</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Tracking Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-warning text-dark">
+                        <div class="card-header">Time Tracking</div>
+                        <div class="card-body">
+                            <p>Monitor and record employee attendance and work hours.</p>
+                            <a href="time-tracking.html" class="btn btn-light">Track Time</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./dashboard2.js"></script>
+</body>
+
+</html>

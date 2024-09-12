@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workforce Management System</title>
+    <!-- Bootstrap CSS via CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .shift-table {
+            margin-top: 20px;
+        }
+        .time-tracking {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Workforce Management System</h1>
+
+        <!-- Employee Scheduling -->
+        <h3>Schedule Employee Shift</h3>
+        <form id="scheduleForm">
+            <div class="form-group">
+                <label for="employeeName">Employee Name</label>
+                <input type="text" id="employeeName" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="shiftDate">Shift Date</label>
+                <input type="date" id="shiftDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="shiftTime">Shift Time</label>
+                <input type="time" id="shiftTime" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Shift</button>
+        </form>
+
+        <!-- Shift Management -->
+        <h3 class="shift-table">Scheduled Shifts</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Shift Date</th>
+                    <th>Shift Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="shiftTableBody">
+                <!-- Shift entries will be added here dynamically -->
+            </tbody>
+        </table>
+
+        <!-- Time Tracking -->
+        <h3 class="time-tracking">Time Tracking</h3>
+        <form id="timeTrackingForm">
+            <div class="form-group">
+                <label for="trackingEmployeeName">Employee Name</label>
+                <input type="text" id="trackingEmployeeName" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Clock In/Out</button>
+        </form>
+
+        <h4 class="mt-4">Time Logs</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="timeLogTableBody">
+                <!-- Time logs will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- JavaScript -->
+    <!-- jQuery and Bootstrap JS via CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap Bundle with Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Shift Management
+        var shifts = [];
+
+        document.getElementById('scheduleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var employeeName = document.getElementById('employeeName').value;
+            var shiftDate = document.getElementById('shiftDate').value;
+            var shiftTime = document.getElementById('shiftTime').value;
+
+            var shift = {
+                id: Date.now(),
+                employeeName: employeeName,
+                shiftDate: shiftDate,
+                shiftTime: shiftTime
+            };
+
+            shifts.push(shift);
+            displayShifts();
+            this.reset();
+        });
+
+        function displayShifts() {
+            var shiftTableBody = document.getElementById('shiftTableBody');
+            shiftTableBody.innerHTML = '';
+            shifts.forEach(function(shift) {
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${shift.employeeName}</td>
+                    <td>${shift.shiftDate}</td>
+                    <td>${shift.shiftTime}</td>
+                    <td><button class="btn btn-danger btn-sm" onclick="deleteShift(${shift.id})">Delete</button></td>
+                `;
+                shiftTableBody.appendChild(row);
+            });
+        }
+
+        function deleteShift(id) {
+            shifts = shifts.filter(function(shift) {
+                return shift.id !== id;
+            });
+            displayShifts();
+        }
+
+        // Time Tracking
+        var timeLogs = [];
+
+        document.getElementById('timeTrackingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var employeeName = document.getElementById('trackingEmployeeName').value;
+            var now = new Date();
+            var status = 'Clocked In';
+
+            // Check if employee is already clocked in
+            var lastLog = timeLogs.filter(function(log) {
+                return log.employeeName === employeeName;
+            }).pop();
+
+            if (lastLog && lastLog.status === 'Clocked In') {
+                status = 'Clocked Out';
+            }
+
+            var timeLog = {
+                employeeName: employeeName,
+                time: now.toLocaleString(),
+                status: status
+            };
+
+            timeLogs.push(timeLog);
+            displayTimeLogs();
+            this.reset();
+        });
+
+        function displayTimeLogs() {
+            var timeLogTableBody = document.getElementById('timeLogTableBody');
+            timeLogTableBody.innerHTML = '';
+            timeLogs.forEach(function(log) {
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${log.employeeName}</td>
+                    <td>${log.time}</td>
+                    <td>${log.status}</td>
+                `;
+                timeLogTableBody.appendChild(row);
+            });
+        
+           <script src="./dashboard1.js"></script>
+        
+        }
+</body>
+</html>
+
+
