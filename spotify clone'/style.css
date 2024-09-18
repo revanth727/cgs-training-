@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(215, 209, 30);
+    color: white;
+    font-family: 'Helvetica', sans-serif;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #2c2c2c;
+    border: none;
+    color: white;
+}
+
+.card img {
+    border-radius: 5px;
+}
